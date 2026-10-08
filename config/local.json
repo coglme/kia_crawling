@@ -1,0 +1,63 @@
+{
+  "job_id": "synthetic-demo-v1",
+  "mode": "fixture",
+  "source_name": "SYNTHETIC_CH_DEMO",
+  "host": "example.invalid",
+  "seed_urls": [
+    "https://example.invalid/thread/100"
+  ],
+  "fixture_pages": {
+    "https://example.invalid/thread/100": "tests/fixtures/page1.html",
+    "https://example.invalid/thread/100?page=2": "tests/fixtures/page2.html"
+  },
+  "market_evidence": "Synthetic fixture only; not Swiss observations",
+  "vehicles": [
+    "Kia PV5",
+    "PV5",
+    "ID. Buzz"
+  ],
+  "search": {
+    "keywords": [
+      "PV5",
+      "ID. Buzz"
+    ],
+    "from": "2025-01-01",
+    "to": "2026-12-31"
+  },
+  "user_agent": "PBVResearchCollector/0.1",
+  "selectors": {
+    "ready": ".posts",
+    "record": ".post",
+    "body": ".body",
+    "title": "h2",
+    "permalink": ".permalink",
+    "time": "time",
+    "author": ".author",
+    "reactions": ".reactions",
+    "next": "a[rel=next]",
+    "empty": ".empty-results",
+    "access_barriers": [
+      ".captcha",
+      "form[action*=login]"
+    ]
+  },
+  "limits": {
+    "max_records": 10,
+    "max_pages": 5,
+    "max_seconds": 60,
+    "daily_records": 20,
+    "page_interval_seconds": 1,
+    "retry_count": 2,
+    "retry_wait_seconds": 300
+  },
+  "schedule": {
+    "timezone": "Europe/Zurich",
+    "start": "00:00",
+    "end": "00:00",
+    "interval_seconds": 1800
+  },
+  "storage": {
+    "database": "data/local.sqlite3",
+    "export_directory": "data/local"
+  }
+}
